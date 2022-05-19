@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="Dependencies.props" />
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Dauda</RootNamespace>
+    <AssemblyName>Dauda</AssemblyName>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>preview</LangVersion>
+    <!--
+      Due to the nature of coding with IL2CPP, unsafe blocks will be allowed by default.
+    -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>x64</Platforms>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="DaudaLogger.cs" />
+    <Compile Include="Inject_Dauda_Nickname.cs" />
+    <Compile Include="Inject_Dauda_Vanity.cs" />
+    <Compile Include="Inject_Dauda_Voice.cs" />
+    <None Include="Dependencies.props" />
+    <None Include="GameFolder.props" />
+  </ItemGroup>
+</Project>
