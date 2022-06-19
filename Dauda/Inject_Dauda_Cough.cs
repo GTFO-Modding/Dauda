@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using AK;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Dauda
         {
             if (Yes)
             {
-                eventID = 2514479542;
+                eventID = EVENTS.PLAY_COUGHHARD01;
             }
         }
     }
