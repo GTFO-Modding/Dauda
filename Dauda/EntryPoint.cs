@@ -1,20 +1,14 @@
 ﻿using BepInEx;
 using BepInEx.IL2CPP;
 using HarmonyLib;
+using Il2CppInterop.Runtime.Runtime;
 using System;
-using UnhollowerBaseLib;
-using UnhollowerBaseLib.Runtime;
-using UnityEngine;
 
 namespace Dauda
 {
     [BepInPlugin("Dauda", "Dauda", "1.0.0")]
     public class EntryPoint : BasePlugin
     {
-        private unsafe delegate IntPtr ResourceLoad(IntPtr path, IntPtr type, Il2CppMethodInfo* methodInfo);
-        private static ResourceLoad _resourceLoadOriginal;
-
-        // The method that gets called when BepInEx tries to load our plugin
         public override unsafe void Load()
         {
             // Creates a new harmony instance to allow for patching into methods
@@ -24,6 +18,8 @@ namespace Dauda
 
             // Log to the console that we have applied all patches
             DaudaLogger.Verbose($"Dauda");
+
+            Inject_Dauda_Cough.Yes = Config.Bind<bool>("Cough", "Cough", false).Value;
         }
 
         private Harmony m_Harmony;

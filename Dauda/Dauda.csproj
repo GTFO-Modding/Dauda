@@ -4,7 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Dauda</RootNamespace>
     <AssemblyName>Dauda</AssemblyName>
-    <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>preview</LangVersion>
     <!--
       Due to the nature of coding with IL2CPP, unsafe blocks will be allowed by default.
@@ -30,6 +29,7 @@
   <ItemGroup>
     <Compile Include="EntryPoint.cs" />
     <Compile Include="DaudaLogger.cs" />
+    <Compile Include="Inject_Dauda_Cough.cs" />
     <Compile Include="Inject_Dauda_Nickname.cs" />
     <Compile Include="Inject_Dauda_Vanity.cs" />
     <Compile Include="Inject_Dauda_Voice.cs" />
